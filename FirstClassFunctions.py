@@ -1,17 +1,26 @@
-# First Class Functions:
-# First class Function is an entity in or a Function() that is treated
-# as First Class CItizen in Python or any other Programming Language.
-##############################################################################
-# First class citizen means The entity that supports all the operations supported
-# by any other Entities. These Opearations typically include being passed as an
-# argument , being returned by a function or being assigned to variable.
+'''First Class Functions:
+   First class Function is an entity in or a Function() that is treated
+   as First Class CItizen in Python or any other Programming Language.'''
+#############################################################################
+'''First class citizen means The entity that supports all the operations supported
+    by any other Entities. These Opearations typically include being passed as an
+    argument , being returned by a function or being assigned to variable.'''
 ##############################################################################
 
-# In Short A First Class Function is availability provided by some
-# programming languages, by which a Function can be assigned to a variable or
-# it can be passed as an argument to any other Function (Ex. Python map() Function)
-# or it can be returned by another Function.
+'''In Short A First Class Function is availability provided by some
+programming languages, by which a Function can be assigned to a variable or
+it can be passed as an argument to any other Function (Ex. Python map() Function)
+or it can be returned by another Function.'''
 
+
+'''Properties of first class functions:
+
+A first class function can be treated as an object.
+It posseses following properties.
+1) We can create instance of FCF.
+2) We can pass it as a Parameter to another function.
+3) It can be returned by a function.
+4) they can be stored in data structures such as lists, dictionaries and what not'''
 ##############################################################################
 # For Example:
 
@@ -55,6 +64,7 @@ print(' Passing A function as an ARGUMENT to another function '.center(70, '='))
 print("\n")
 
 # Implementation of Mapper map() function.
+print(' Example 1 '.center(70, '='))
 
 
 def square(x):
@@ -73,3 +83,29 @@ def myMapper(func, arg_list):
 arguments = [12, 4, 6, 3, 76]
 
 print(myMapper(square, arguments))
+
+
+''' All Python Functions are FCFs. It can be said-Python Functions are Objects '''
+
+
+############################# Another Example #########################
+print(' Example 2 '.center(70, '='))
+
+
+def take_msg(message):
+
+    edited_msg = message + ' edited by '
+
+    def give_msg(name):
+        print(edited_msg + name)  # accessing Varaible outside scope
+
+    return give_msg  # Function being returned
+
+
+print(take_msg.__name__)
+assignment = take_msg  # Instance of a function is created
+print(assignment.__name__)
+
+result = take_msg('Python is Awesome')  # assigning returned function
+print(result.__name__)
+result('Nilesh Unde')
